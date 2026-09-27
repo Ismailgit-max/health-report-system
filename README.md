@@ -147,3 +147,26 @@ GET /api/test-results
 DELETE /api/test-results/{id}
 
 Exact API behavior and authorization depend on the authenticated user's role.
+
+
+## 📸 Screenshots
+
+### Login Page
+
+![Login Page](screenshots/login%20page.png)
+
+### Signup Page
+
+![Signup Page](screenshots/signup%20login.png)
+
+### Doctor Dashboard
+
+![Doctor Dashboard](screenshots/doctor%20login.png)
+
+### Lab Technician Dashboard
+
+![Lab Technician Dashboard](screenshots/lab-tech%20login.png)
+
+### Patient Dashboard
+
+![Patient Dashboard](screenshots/patients%20login.png)

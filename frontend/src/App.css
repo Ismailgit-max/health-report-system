@@ -1,0 +1,434 @@
+:root {
+  --bg-gradient: linear-gradient(
+          135deg,
+          #e0f2fe 0%,
+          #f0f9ff 50%,
+          #e0e7ff 100%
+  );
+
+  --card-bg: #ffffff;
+  --card-border: rgba(226, 232, 240, 0.8);
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-label: #334155;
+
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+
+  --role-bg: #f8fafc;
+  --role-hover: #f1f5f9;
+  --role-border: #e2e8f0;
+
+  --role-active-bg: #eff6ff;
+  --role-active-border: #2563eb;
+  --role-active-text: #1d4ed8;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+
+  --shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* Dark Mode */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-gradient: linear-gradient(
+            135deg,
+            #0f172a 0%,
+            #1e293b 50%,
+            #0f172a 100%
+    );
+
+    --card-bg: #1e293b;
+    --card-border: rgba(255, 255, 255, 0.1);
+
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-label: #cbd5e1;
+
+    --input-bg: #0f172a;
+    --input-border: #334155;
+
+    --role-bg: #0f172a;
+    --role-hover: #334155;
+    --role-border: #334155;
+
+    --role-active-bg: rgba(37, 99, 235, 0.2);
+    --role-active-border: #3b82f6;
+    --role-active-text: #60a5fa;
+
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Universal Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Login Page */
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  background: var(--bg-gradient);
+}
+
+/* Login Card */
+
+.login-card {
+  width: 100%;
+  max-width: 440px;
+
+  padding: 40px;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+
+  box-shadow: var(--shadow);
+
+  text-align: center;
+
+  animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Login Logo */
+
+.login-card .logo {
+  width: 75px;
+  height: 75px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2.5rem;
+
+  background: var(--role-active-bg);
+
+  border: 1px solid var(--role-active-border);
+  border-radius: 50%;
+
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Login Heading */
+
+.login-card h1 {
+  color: var(--text-main);
+
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  margin-bottom: 6px;
+}
+
+/* Login Subtitle */
+
+.login-card .subtitle {
+  color: var(--text-muted);
+
+  font-size: 0.875rem;
+
+  margin-bottom: 24px;
+}
+
+/* Role Selector */
+
+.role-container {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-bottom: 24px;
+}
+
+.role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 12px 8px;
+
+  background: var(--role-bg);
+
+  border: 1px solid var(--role-border);
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  color: var(--text-muted);
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  transition: all 0.25s ease;
+}
+
+.role-card:hover {
+  background: var(--role-hover);
+
+  transform: translateY(-2px);
+}
+
+.role-card:focus,
+.role-card.active {
+  border-color: var(--role-active-border);
+
+  background: var(--role-active-bg);
+
+  color: var(--role-active-text);
+
+  outline: none;
+
+  transform: translateY(-2px);
+}
+
+.role-icon {
+  font-size: 1.3rem;
+
+  transition: transform 0.2s ease;
+}
+
+.role-card:hover .role-icon {
+  transform: scale(1.15);
+}
+
+/* Divider */
+
+.divider {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+
+  flex: 1;
+
+  border-bottom: 1px solid var(--role-border);
+}
+
+.divider span {
+  padding: 0 12px;
+
+  color: var(--text-muted);
+
+  font-size: 0.75rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+
+  font-weight: 600;
+}
+
+/* Login Form */
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+
+  text-align: left;
+}
+
+.login-card form > label {
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  color: var(--text-label);
+
+  margin-bottom: 6px;
+}
+
+.login-card form input[type='email'],
+.login-card form input[type='password'] {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  background: var(--input-bg);
+
+  color: var(--text-main);
+
+  border: 1px solid var(--input-border);
+
+  border-radius: 12px;
+
+  font-size: 0.95rem;
+
+  margin-bottom: 16px;
+
+  outline: none;
+}
+
+.login-card form input[type='email']:focus,
+.login-card form input[type='password']:focus {
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Options */
+
+.options {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 0.825rem;
+
+  margin-bottom: 22px;
+}
+
+.remember {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  cursor: pointer;
+
+  color: var(--text-muted);
+}
+
+.remember input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+
+  accent-color: var(--primary);
+
+  cursor: pointer;
+}
+
+.options a,
+.signup a {
+  color: var(--primary);
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+.options a:hover,
+.signup a:hover {
+  text-decoration: underline;
+}
+
+/* Login Button */
+
+.login-button {
+  width: 100%;
+
+  padding: 12px;
+
+  background: var(--primary);
+
+  color: white;
+
+  border: none;
+
+  border-radius: 12px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+
+  transition: all 0.2s ease;
+}
+
+.login-button:hover {
+  background: var(--primary-hover);
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+.login-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Signup Link */
+
+.signup {
+  margin-top: 24px;
+
+  font-size: 0.875rem;
+
+  color: var(--text-muted);
+}
+
+.signup a {
+  margin-left: 5px;
+}
+
+/* Animations */
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
